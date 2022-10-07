@@ -1,3 +1,0 @@
-# Unignore all `.exe` in `bin` dir
-!*/bin/*.exe
-!*/bin/*
