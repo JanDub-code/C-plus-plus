@@ -1,8 +1,7 @@
 *     
-!*.*  
+!*.* 
 
 
+!more_testing/
 *.exe
 *.json
-
-/.vscode/launch.json
