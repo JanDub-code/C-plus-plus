@@ -16,16 +16,20 @@ public:
         m_log = "";
     }
 
-  void deposit(float amount){
+    void deposit(float amount){
+    if(amount > 0){
       m_balance += amount;
-      m_log += "Deposit: " + to_string(amount)+ ", ";  
+      m_log += "Deposit: " + to_string(amount)+ ", ";
+    }else{
+      m_log += "Cannot deposit negative amount, ";  
+    }
     }
 
     void withdraw(float amount){
         if(amount > m_withdrawalLimit){
             m_log += "Withdrawal limit exceeded, ";
         }else if(amount > m_balance){
-            m_log += "Insufficient funds, ";
+            m_log += "Insufficient funds for withdrawal, ";
         }else{
             m_balance -= amount;
             m_log += "Withdrawal: " + to_string(amount)+ ", ";
@@ -37,8 +41,12 @@ public:
     }
 
     void changeWithdrawalLimit(float newLimit){
+        if(newLimit > 0){
         m_withdrawalLimit = newLimit;
         m_log+= "Withdrawal limit changed to: " + to_string(newLimit)+ ", ";
+    }else {
+        m_log+= "Cannot set negative withdrawal limit, ";
+    }
     }
 
     void printInfo(){
@@ -47,12 +55,11 @@ public:
         cout << "Balance: " << m_balance << endl;
         cout << "Withdrawal limit: " << m_withdrawalLimit << endl;
         cout << "Is transparent: " << m_isTransparent << endl;
-        cout << "Log: " << m_log << endl;
     }
     }
 
     void printLog(){
-        cout << m_log;
+        cout << "Log: " << m_log;
     }
     
     void changeOwner(string newOwner){
@@ -78,9 +85,12 @@ int main(){
     
     Account a2("Jane", 2000);
     a2.deposit(100);
+    a2.deposit(-100);
     a2.withdraw(200);
     a2.setTransparent(true);
+    a2.changeWithdrawalLimit(-200);
     a2.printInfo();
     a2.printLog();
+
     return 0;
 }
