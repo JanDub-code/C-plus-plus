@@ -1,6 +1,7 @@
 *     
 !*.* 
 
+!Algorithmization/
 !OOP/
 !more_testing/
 *.exe
