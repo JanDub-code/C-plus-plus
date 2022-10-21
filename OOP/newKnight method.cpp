@@ -23,10 +23,10 @@ class Knight{
     }
 
     int getDefence(){
-        return m_defence+m_equippedArmor;   }
+        return m_defence+m_equippedArmor->m_defenceBonus;
     }
 
-;
+};
 
 int main(){
     Knight*Artus= new Knight(10,25);
