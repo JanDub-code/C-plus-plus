@@ -1,0 +1,40 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int size=1000;
+typedef float type[size];
+
+int main() {
+    type field;
+    int number =0;
+
+    cout<<"input number "<<number+1<<":";
+    cin>> field[number];
+    while(field[number]!=1000){
+        number ++;
+        cout<<"input number "<<number+1<<":";
+        cin>>field[number];
+    }
+
+    float sum=0;
+
+    for(int i=0;i<number;i++){
+        sum+=field[i];
+    }
+
+    float average=sum/number;
+    int underAverage=0;
+
+    for(int i=0;i<number;i++){
+        if(field[i]<average){
+            underAverage++;
+        }
+    }
+
+    cout<<"average is : "<<average<<endl;
+    cout<<"sum is : "<<sum<<endl;
+    cout<<"number of under average numbers in array : "<<underAverage<<endl;
+    return 0;
+}
