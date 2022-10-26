@@ -33,6 +33,20 @@ int main() {
         }
     }
 
+    type underAverageField;
+    int index=0;
+
+    for(int i=0;i<number;i++){
+        if(field[i]<average){
+            underAverageField[index]+= field[i];
+            index++;
+        }
+    }
+    cout<<"printing out under average numbers from first array: "<<endl;
+    for(int i=0;i<index;i++){
+        cout<<underAverageField[i]<<endl;
+    }
+    cout<<"-------------------------------"<<endl;
     cout<<"average is : "<<average<<endl;
     cout<<"sum is : "<<sum<<endl;
     cout<<"number of under average numbers in array : "<<underAverage<<endl;
