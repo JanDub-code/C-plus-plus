@@ -10,7 +10,7 @@ int pole[300];  // Je ekvivalentni int*pole;
 //*I =17;
 
 //podprogram
-typedef int typpole[300];
+typedef int typpole[300];meta stock
 void delej(typpole P){
     P[30]=118;
 }
