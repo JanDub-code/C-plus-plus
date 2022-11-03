@@ -12,7 +12,10 @@ int main() {
     
     Section * section = new Section("A");
     section->addEmptyContainer("A1");
+    section->addEmptyContainer("A2");
+
     section->addProductToContainer("Sword","A1");
+    section->addProductToContainer("Shield","A2");
     section->printStatistics();
     
     delete section;
