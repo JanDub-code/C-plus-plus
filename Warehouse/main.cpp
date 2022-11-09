@@ -16,6 +16,10 @@ int main() {
 
     section->addProductToContainer("Sword","A1");
     section->addProductToContainer("Shield","A2");
+    section->addProductToContainer("Paper","A2");
+    section->addProductToContainer("Iphone 14","A1");
+    section->addProductToContainer("Stone","A2");
+    section->addProductToContainer("Scisors","A2");
     section->printStatistics();
     
     delete section;
