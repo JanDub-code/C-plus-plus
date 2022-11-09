@@ -28,7 +28,7 @@ class Player{
         }
     }
     void print(){
-        std::cout << symbol << std::endl;
+        std::cout << symbol ;
     }
 
     int returnX(){
