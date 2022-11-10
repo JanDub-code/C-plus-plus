@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 //create a moving object for our map displayed as 'P' with switch cases for movement inside a while loop game field that is 8x8
 class Player{
@@ -40,8 +41,6 @@ class Player{
     }
 };
 
-
-
 int main(){
 //display 8x8 room with "X" as a walls and " " as a floor and put it all inside infinite loop 
 // for refreshing the room after every move (keep the room static)
@@ -64,11 +63,7 @@ Player * player = new Player(3,3,"P");
         char input;
         std::cin >> input;
         player->move(input);
+        system("clear");   // system("cls"); for windows and system("clear"); for linux
     }
-
-
- 
- 
     return 0;
 }
-
