@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+
 
 //create a moving object for our map displayed as 'P' with switch cases for movement inside a while loop game field that is 8x8
 class Player{
@@ -63,7 +63,10 @@ Player * player = new Player(3,3,"P");
         char input;
         std::cin >> input;
         player->move(input); // make if system for movement and inventory if inventory is chosen map closes and we see only inventory
-        system("clear");   // system("cls"); for windows and system("clear"); for linux
+           // system("cls"); for windows and system("clear"); for linux
+        
+        
+        
     }
     return 0;
 }
