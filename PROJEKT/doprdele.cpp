@@ -25,10 +25,16 @@ std::string Tile::getAppearance() {
 
 class Map {
     std::vector<std::vector<Tile *> > m_map;
+    int x;
+    int y;
 public:
     Map(unsigned int width, unsigned int height);
 
     Map();
+
+    int getX();
+
+    int getY();
 
     Tile *getValue(unsigned int row, unsigned int col);
 
@@ -40,12 +46,14 @@ public:
 
     ~Map();
 
-
+    private:
 
     bool isInMap(unsigned int row, unsigned int col);
 };
 
 Map::Map(unsigned int width, unsigned int height) {
+    x=width;
+    y=height;
     if (width > 0 && height > 0) {
 
         for (int x = 0; x < height; x++) {
@@ -63,6 +71,12 @@ Map::Map(unsigned int width, unsigned int height) {
     }
 }
  
+int Map::getX(){
+    return x;
+}
+int Map::getY(){
+    return y;
+}
 Map::Map(){
 
 }
@@ -221,16 +235,27 @@ void printMapOnTheBottom(int positionX, int positionY, MapMatrix* mapMatrix) {
     mapMatrix->print(x, y);
 }
 
+//create function that finds door and returns position
+void findDoor(Map* map){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            if(map->getValue(i, j)->getAppearance() == "D"){
+                int positionX = i;
+                int positionY = j;
+                std::cout<<"Door is at: "<<positionX<<", "<<positionY<<std::endl;
+            }
+        }
+    }
+}
+
 
 int main() {
-    Map *map = new Map(1, 1);
     //map->print();
     Map *map3 = new Map(1, 1);
     Map* map2 = new Map(1, 1);
     Map* map4 = new Map(1, 1);
     Map* map5 = new Map(1, 1);
     MapMatrix *mapMatrix = new MapMatrix(5, 5);
-    mapMatrix->setValue(1, 1, map);
     //mapMatrix->print(1,1);
     mapMatrix->setValue(2, 1, map5);
     mapMatrix->setValue(2, 2, map3);
@@ -247,6 +272,15 @@ int main() {
     mapMatrix->setValue(4, 2, map6);
     mapMatrix->setValue(4, 3, map7);
     printMapOnTheRight(4, 1, mapMatrix);
+
+    Map *map = new Map(5, 6);
+    MapMatrix*mapMatrix1=new MapMatrix(5,5);
+
+    map->setNewAppearance(1, 2, "D");
+    mapMatrix1->setValue(1, 1, map);
+
+    map->print();
+    findDoor(map);
 
 
 
