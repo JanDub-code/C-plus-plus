@@ -247,12 +247,14 @@ void findDoor(Map* map){
         position_Y_wall=2;
     }
     if (position_Y_door==1){
+        std::cout<<"Door is on the left wall"<<std::endl;
         positin_X_wall=1;
         position_Y_wall=1;
     }
-    if(position_Y_door==map->getY()){
-        positin_X_wall=map->getY();
-        position_Y_wall=map->getY();
+    if(position_Y_door==map->getX()-2){
+        std::cout<<"Door is on the right wall"<<std::endl;
+        positin_X_wall=map->getX();
+        position_Y_wall=map->getX();
     }           
             }
         }
@@ -318,14 +320,18 @@ int main() {
     Map* test=new Map(6,5);
     test->setNewAppearance(4,2,"D");
     mapMatrix1->setValue(1,1,test);
+    Map*vlevo=new Map(5,6);
+    vlevo->setNewAppearance(3,1,"D");
+    Map* vpravo=new Map(5,6);
+    vpravo->setNewAppearance(3,3,"D");
+
 
     map->print();
     findDoor(map);
     test->print();
     findDoor(test);
     
-   
-    
-    
+    findDoor(vpravo);
+    findDoor(vlevo);
     return 0;
 }
