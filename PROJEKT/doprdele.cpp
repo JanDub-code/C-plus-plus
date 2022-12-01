@@ -297,6 +297,8 @@ void whichWall(Map * map){
     
 }
 
+
+
 void movingBetweenMaps(){
 
 }
@@ -328,9 +330,7 @@ int main() {
 
     map->print();
     findDoor(map);
-    test->print();
     findDoor(test);
-    
     findDoor(vpravo);
     findDoor(vlevo);
     return 0;
