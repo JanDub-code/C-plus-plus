@@ -82,18 +82,7 @@ Map::Map(){
 }
 
 bool Map::isInMap(unsigned int row, unsigned int col) {
-    if (row >= m_map.size()) { // m_map.size() == height
-        std::cerr << "Map::isInMap: row is " << row
-                  << ", max. is  " << m_map.size() - 1 << std::endl;
-        return false;
-    }
-
-    if (col >= m_map.at(0).size()) { // m_map.at(0).size() == width
-        std::cerr << "Map::isInMap: column is " << col
-                  << ", max. is  " << m_map.at(0).size() - 1 << std::endl;
-        return false;
-    }
-
+   
     return true;
 }
 
@@ -237,35 +226,82 @@ void printMapOnTheBottom(int positionX, int positionY, MapMatrix* mapMatrix) {
 
 //create function that finds door and returns position
 void findDoor(Map* map){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(int i = 0; i < map->getX()-1; i++){
+        for(int j = 0; j < map->getY()-1; j++){
             if(map->getValue(i, j)->getAppearance() == "D"){
                 int positionX = i;
                 int positionY = j;
                 std::cout<<"Door is at: "<<positionX<<", "<<positionY<<std::endl;
+                int position_X_door = i;
+            int position_Y_door = j;
+            int positin_X_wall;
+            int position_Y_wall;
+            if (position_X_door == 1){
+        std::cout<<"Door is on the top wall"<<std::endl;
+        positin_X_wall=1;
+        position_Y_wall=1;
+    }
+    if (position_X_door == map->getY()-1){
+        std::cout<<"Door is on the bottom wall"<<std::endl;
+        positin_X_wall=2;
+        position_Y_wall=2;
+    }
+    if (position_Y_door==1){
+        positin_X_wall=1;
+        position_Y_wall=1;
+    }
+    if(position_Y_door==map->getY()){
+        positin_X_wall=map->getY();
+        position_Y_wall=map->getY();
+    }           
             }
         }
     }
 }
 
+void whichWall(Map * map){
+    int positin_X_wall;
+    int position_Y_wall;
+    int position_X_door;
+    int position_Y_door;
+    for(int i = 0; i < map->getY()-1; i++){
+        for(int j = 0; i<map->getX()-1; j++){
+            if(map->getValue(i, j)->getAppearance() == "D"){
+                position_X_door = i;
+                position_Y_door = j;
+                std::cout<<"Door is at: "<<position_X_door<<", "<<position_Y_door<<std::endl;
+            }
+        }
+    }
+    if (position_X_door == 1){
+        std::cout<<"Door is on the top wall"<<std::endl;
+        positin_X_wall=1;
+        position_Y_wall=1;
+    }
+    if (position_X_door == map->getX()){
+        std::cout<<"Door is on the bottom wall"<<std::endl;
+        positin_X_wall=map->getX();
+        position_Y_wall=map->getX();
+    }
+    if (position_Y_door==1){
+        positin_X_wall=1;
+        position_Y_wall=1;
+    }
+    if(position_Y_door==map->getY()){
+        positin_X_wall=map->getY();
+        position_Y_wall=map->getY();
+    }
+    
+    
+}
+
+void movingBetweenMaps(){
+
+}
 
 int main() {
-    //map->print();
-    Map *map3 = new Map(1, 1);
-    Map* map2 = new Map(1, 1);
-    Map* map4 = new Map(1, 1);
-    Map* map5 = new Map(1, 1);
     MapMatrix *mapMatrix = new MapMatrix(5, 5);
-    //mapMatrix->print(1,1);
-    mapMatrix->setValue(2, 1, map5);
-    mapMatrix->setValue(2, 2, map3);
-    mapMatrix->setValue(3, 3, map4);
-
-    mapMatrix->setValue(1, 2, map2);
-    //mapMatrix->print(1,2);
-
-    mapMatrix->printAllValuesInMatrix();
-
+    
     Map* map6 = new Map(4, 4);
     Map* map7 = new Map(8, 8);
 
@@ -277,13 +313,19 @@ int main() {
     MapMatrix*mapMatrix1=new MapMatrix(5,5);
 
     map->setNewAppearance(1, 2, "D");
-    mapMatrix1->setValue(1, 1, map);
+    mapMatrix1->setValue(1, 2, map);
+
+    Map* test=new Map(6,5);
+    test->setNewAppearance(4,2,"D");
+    mapMatrix1->setValue(1,1,test);
 
     map->print();
     findDoor(map);
-
-
-
-
+    test->print();
+    findDoor(test);
+    
+   
+    
+    
     return 0;
 }
