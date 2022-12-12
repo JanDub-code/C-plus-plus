@@ -333,5 +333,6 @@ int main() {
     findDoor(test);
     findDoor(vpravo);
     findDoor(vlevo);
+
     return 0;
 }
