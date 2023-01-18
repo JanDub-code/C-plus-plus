@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+int N=1000;
+struct zamestnanec{
+string cislo;
+int plat;
+int pracoviste;
+};
+
+int main(){
+zamestnanec zamestnanci[N];
+
+for(i=0;i<N;i++){
+	cin>>zamestnanci[i].cislo>>zamestnanci[i].plat>>zamestnanci[i].pracoviste;	
+}
+
+for(i=0;i<N;i++){
+	if(zamestnanci[i].pracoviste==i)	
+}
+
+return 0;
+}
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+char[8] datum;
+int cena;
+char[8] maxdatum;
+int maxcena;
+
+cin>>datum;
+cin>>cena;
+predchozicena= cena;
+predchozidatum=datum;
+while(cin>>datum != "X"){
+	if((prechozicena-cena)>maxcena){
+	maxdatum=datum;
+	maxcena=predchozicena-cena;
+}
+cin>>datum;
+cin>>cena;
+}
+cout<<maxdatum;
+return 0;
+}
+
+
+
+
+struct Prvek{
+char *hodnota;
+Prvek*levy;
+Prvek*pravy;
+};
+
+int hloubka(Prvek*u){
+if(u==nullptr){
+return0;}
+else{
+pravy=hloubka(u->pravy);
+levy=hloubka(u->levy);
+if(pravy>levy){
+return pravy+1}
+else{return levy+1}
+}
+}
+
+
+
+
