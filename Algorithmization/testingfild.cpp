@@ -1,23 +1,57 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-void sinus(float x,float e){
-    float s=x;float suma=s;int pocet=0;int i=3;
-    while(abs(s)>e){
-    s=(-s*x*x)/(i*(i-1));
-    suma +=s;
-    pocet ++;
-    i +=2;
+struct Uzel{
+int hodnota;
+Uzel*pravy;
+Uzel*levy;
+};
+
+int Hloubka(Uzel*u){
+    if(u==nullptr){
+        return 0;
+    }
+    else{
+        int lev=Hloubka(u->levy);
+        int prav=Hloubka(u->pravy);
+        if(prav>lev){
+            return prav+1;
+        }
+        else {
+            return lev+1;
+        }
+    }
 }
-cout<<"sinus je : "<<suma<<" ,pocet cyklu : "<<pocet<<endl;
+
+void precti(Uzel* u) {
+    if (u != nullptr) {
+        precti(u->levy);
+        cout << u->hodnota << " ";
+        precti(u->pravy);
+    }
 }
+
+void pridej(Uzel*& u,int hodnota){
+    if(u==nullptr){
+        u=new Uzel{hodnota,nullptr,nullptr};
+    }
+    else {
+        if(hodnota<u->hodnota){
+        pridej(u->levy,hodnota);
+        }
+        else{
+         pridej(u->pravy,hodnota);
+        }
+    }
+};
 
 int main(){
-    float x=0.5;
-    float e=0.0001;
-
-    sinus(x,e);
-    cout<<sin(x);
-    return 0;
+Uzel*u=nullptr;
+pridej(u,10);
+pridej(u,4);
+pridej(u,7);
+pridej(u,22);
+precti(u);
+cout<<Hloubka(u);
+return 0;
 }
