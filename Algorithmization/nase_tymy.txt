@@ -1,0 +1,9 @@
+profi 10
+uw 0
+klc 19 
+kfc 0
+mcd 0
+peanut 45
+sadc 1
+poly 14
+uwu 6
