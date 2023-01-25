@@ -1,0 +1,6 @@
+Petr 15000
+Jakub 25000
+Ivo 45000
+Oleg 999999
+Parno 40000
+Iva 150
