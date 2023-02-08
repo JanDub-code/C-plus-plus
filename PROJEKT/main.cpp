@@ -64,7 +64,7 @@ Player * player = new Player(3,3,"P");
         std::cin >> input;
         player->move(input); // make if system for movement and inventory if inventory is chosen map closes and we see only inventory
            // system("cls"); for windows and system("clear"); for linux
-        
+        system("clear");
         
         
     }

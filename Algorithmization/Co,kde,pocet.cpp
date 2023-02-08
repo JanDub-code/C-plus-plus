@@ -10,7 +10,7 @@ void zjisti(string Co,string Kde[],int pocet){
             pomocna[i]=toupper(pomocna[i]);
         }
         if(Co==pomocna){
-            cout<<"shoda";
+            cout<<"shoda je :";
             cout<<pomocna;
             splneno=1;
         }
