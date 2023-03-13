@@ -46,5 +46,22 @@ int main(){
     cout<<"Průměr je : "<<prumerPole(pole, cisla)<<endl;
     cout<<"nadprumernych je : "<<nadprumer(pole,cisla)<<endl; 
     cout<<"vetsich nez posledni je : "<<vetsinezPosledni(pole,cisla)<<endl;
+ 
+    int pocty[10];
+    int cisla1;
+    for(int i=0;i<10;i++){
+        pocty[i]=0;
+    }
+
+    while(cin>>cisla1 and cisla1!=-333){
+        while(cisla1 !=0){
+            pocty[cisla1%10]++;
+            cisla1/=10;
+        }
+    }
+    for(int i=0;i<10;i++){
+        cout<<"počet "<<i<<" je : "<<pocty[i]<<endl;
+    }
+ 
     return 0;
 }

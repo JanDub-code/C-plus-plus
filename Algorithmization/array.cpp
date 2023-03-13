@@ -3,9 +3,9 @@
 
 using namespace std;
 
-const int size=1000;
-typedef float type[size];
-typedef string saving[size];
+
+typedef float type[1000];
+typedef string saving[1000];
 
 int main() {
     type field;
