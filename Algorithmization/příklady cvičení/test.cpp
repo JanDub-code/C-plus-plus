@@ -23,5 +23,16 @@ int main(){
     }
     cout<<ahoj;
 
+    char c;
+    
+    string vysledek="";
+    cin >>c;
+    while(c!='x'){
+        vysledek.push_back(c);
+        cin>>c;
+    }
+
+    cout<<vysledek<<endl;
+
     return 0;
 }
