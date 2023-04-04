@@ -107,20 +107,27 @@ void nactiSoubor(Student* &s, string nazev){
         }
         vstup.close();
     }
-    
-    
-    
 }
-
+void zapisSoubor(Student* s, string nazev){
+    ofstream vystup(nazev);
+    if(vystup.is_open()){
+        while(s!=nullptr){
+            vystup<<s->jmeno<<" "<<s->prijmeni<<" "<<s->trida<<" "<<s->pohlavi
+                    <<" "<<s->prumer<<endl;
+            s= s->dalsi;
+        }
+        vystup.close();
+    }
+}
+void vyprazdni(Student* &s){
+    while(s!=nullptr) 
+        odeberZacatek(s);
+}
 int main(){
    Student* st;
    nactiSoubor(st,"zaci.txt");
    cout<<pocetStudentu(st)<<endl;
-   vypisSeznam(st);
-   odeberZacatek(st);
-   vypisSeznam(st);
-   odeberKonec(st);
-   vypisSeznam(st);
+   zapisSoubor(st,"obracene.txt");
    
    
     return 0;
