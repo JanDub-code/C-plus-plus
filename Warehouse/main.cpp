@@ -20,6 +20,7 @@ int main() {
     section->addProductToContainer("Iphone 14","A1");
     section->addProductToContainer("Stone","A2");
     section->addProductToContainer("Scisors","A2");
+    section->addProductToContainer("Creatine","A1");
     section->printStatistics();
     
     delete section;
